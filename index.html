@@ -28,26 +28,9 @@
 </main>
 <div id="toasts"></div>
 
-<dialog id="accessDlg">
-  <form id="accessForm" method="dialog">
-    <h2>Доступ на редагування</h2>
-    <p class="small">Переглядати може будь-хто. Щоб зберігати версії, правки і завантажені файли, потрібен GitHub-токен
-      з правом запису в <a href="https://github.com/Kosheew/block-out-levels" target="_blank" rel="noopener">Kosheew/block-out-levels</a>.
-      Кожне збереження — окремий коміт, тож історія змін не губиться.</p>
-    <ol class="small">
-      <li>Власник репозиторію додає вас у <i>Settings → Collaborators</i>.</li>
-      <li>GitHub → <i>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</i>.</li>
-      <li>Repository access: <i>Only select repositories</i> → <b>block-out-levels</b>; Permissions → Repository → <b>Contents: Read and write</b>.</li>
-      <li>Вставте токен нижче. Він зберігається лише в цьому браузері.</li>
-    </ol>
-    <label>Токен <input id="tok" type="password" autocomplete="off" placeholder="github_pat_…"></label>
-    <label>Ваше ім'я в історії <input id="who" type="text" placeholder="напр. Андрій"></label>
-    <p id="accessMsg" class="small"></p>
-    <div class="row">
-      <button type="submit" class="primary">Зберегти</button>
-      <button type="button" id="accessClose">Закрити</button>
-    </div>
-  </form>
+<dialog id="dlg">
+  <button type="button" id="dlgClose" class="close" aria-label="Закрити">✕</button>
+  <div id="dlgBody"></div>
 </dialog>
 <script type="module" src="app/main.js"></script>
 </body>
