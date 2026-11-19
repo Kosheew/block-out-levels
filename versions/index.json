@@ -2,8 +2,8 @@
   "versions": [
     {
       "id": "game-2026-11-19",
-      "title": "Гра: поточні рівні",
-      "note": "Рівні з Assets/Resources/Levels (gen-levels.mjs), стан на 2026-11-19",
+      "title": "Dev: feature/VGB-258 (2026-11-19)",
+      "note": "Рівні з Assets/Resources/Levels робочої гілки feature/VGB-258-Update-Calendar, стан на 2026-11-19 (новіші за реліз 1.0.7)",
       "author": "import",
       "date": "2026-11-19T10:06:25.551Z",
       "parent": null,
@@ -20,6 +20,26 @@
         },
         "special": {
           "count": 331
+        }
+      }
+    },
+    {
+      "id": "release-1.0.7-50",
+      "title": "Реліз 1.0.7 (50)",
+      "note": "Рівні з гілки release/1.0.7(50), коміт e4cf0ada; ті самі файли лежать у Firebase Storage levels/ (normal, challenge, roadtrip)",
+      "author": "release",
+      "date": "2026-11-19T10:40:54.057Z",
+      "parent": null,
+      "source": "import",
+      "sets": {
+        "challenge": {
+          "count": 549
+        },
+        "normal": {
+          "count": 5000
+        },
+        "roadtrip": {
+          "count": 400
         }
       }
     }
