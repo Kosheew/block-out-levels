@@ -180,7 +180,7 @@ const setMsg = (el, text, ok) => { el.textContent = text; el.className = `small 
 
 function openAccount() {
   if (!db.configured) {
-    return openDialog(h('h2', {}, 'Вхід ще не налаштовано'), h('p', { class: 'small' }, 'Власник має підключити Supabase (README → «Налаштування»). До того сайт працює лише на перегляд.'));
+    return openDialog(h('h2', {}, 'Вхід ще не налаштовано'), h('p', { class: 'small' }, 'Власник має підключити Supabase (README репозиторію → Setup). До того сайт працює лише на перегляд.'));
   }
   if (db.status === 'err') return openDialog(h('h2', {}, 'Немає зв\'язку'), h('p', { class: 'small error' }, db.error));
   if (!db.user) return openLogin();
