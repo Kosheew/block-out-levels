@@ -31,18 +31,17 @@ async function api(path, init = {}) {
 }
 
 let head = null; // commit sha the reads are pinned to
-export async function refreshHead() {
-  try {
-    head = (await api(`/commits/${REPO.branch}`)).sha;
-  } catch {
-    head = null; // rate limit or offline: fall back to the files served next to the page
-  }
-  return head;
+let headAsked = null; // one lookup per page load (the unauthenticated API allows 60 calls an hour)
+export function refreshHead() {
+  headAsked = api(`/commits/${REPO.branch}`, { cache: 'no-store' })
+    .then((c) => (head = c.sha))
+    .catch(() => (head = null)); // rate limit or offline: fall back to the files served next to the page
+  return headAsked;
 }
 
 const cache = new Map();
 export async function readText(path, { fresh = false } = {}) {
-  if (!head && !fresh) await refreshHead();
+  await (headAsked || refreshHead());
   const key = `${head}:${path}`;
   if (!fresh && cache.has(key)) return cache.get(key);
   const urls = head ? [`https://raw.githubusercontent.com/${REPO.owner}/${REPO.repo}/${head}/${path}`, path] : [path];
