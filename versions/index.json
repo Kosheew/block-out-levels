@@ -1,0 +1,27 @@
+{
+  "versions": [
+    {
+      "id": "game-2026-11-19",
+      "title": "Гра: поточні рівні",
+      "note": "Рівні з Assets/Resources/Levels (gen-levels.mjs), стан на 2026-11-19",
+      "author": "import",
+      "date": "2026-11-19T10:06:25.551Z",
+      "parent": null,
+      "source": "import",
+      "sets": {
+        "challenge": {
+          "count": 549
+        },
+        "normal": {
+          "count": 5000
+        },
+        "roadtrip": {
+          "count": 400
+        },
+        "special": {
+          "count": 331
+        }
+      }
+    }
+  ]
+}

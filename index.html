@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Block Out Level Lab</title>
+<meta name="description" content="Генератор, криві складності, перегляд і версії рівнів Block Out">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect x='1' y='1' width='6' height='6' fill='%23e7bd2f'/><rect x='9' y='1' width='6' height='6' fill='%232f96df'/><rect x='1' y='9' width='6' height='6' fill='%2343b649'/><rect x='9' y='9' width='6' height='6' fill='%23a35ae6'/></svg>">
+<link rel="stylesheet" href="app/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <h1>Block Out <span>Level Lab</span></h1>
+  <nav class="tabs">
+    <button data-tab="curves">Криві</button>
+    <button data-tab="levels">Рівні</button>
+    <button data-tab="gen">Генератор</button>
+    <button data-tab="versions">Версії і файли</button>
+  </nav>
+  <button id="access" class="access">🔒 Лише перегляд</button>
+</header>
+<main>
+  <div id="tab-curves"></div>
+  <div id="tab-levels" hidden></div>
+  <div id="tab-gen" hidden></div>
+  <div id="tab-versions" hidden></div>
+</main>
+<div id="toasts"></div>
+
+<dialog id="accessDlg">
+  <form id="accessForm" method="dialog">
+    <h2>Доступ на редагування</h2>
+    <p class="small">Переглядати може будь-хто. Щоб зберігати версії, правки і завантажені файли, потрібен GitHub-токен
+      з правом запису в <a href="https://github.com/Kosheew/block-out-levels" target="_blank" rel="noopener">Kosheew/block-out-levels</a>.
+      Кожне збереження — окремий коміт, тож історія змін не губиться.</p>
+    <ol class="small">
+      <li>Власник репозиторію додає вас у <i>Settings → Collaborators</i>.</li>
+      <li>GitHub → <i>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</i>.</li>
+      <li>Repository access: <i>Only select repositories</i> → <b>block-out-levels</b>; Permissions → Repository → <b>Contents: Read and write</b>.</li>
+      <li>Вставте токен нижче. Він зберігається лише в цьому браузері.</li>
+    </ol>
+    <label>Токен <input id="tok" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+    <label>Ваше ім'я в історії <input id="who" type="text" placeholder="напр. Андрій"></label>
+    <p id="accessMsg" class="small"></p>
+    <div class="row">
+      <button type="submit" class="primary">Зберегти</button>
+      <button type="button" id="accessClose">Закрити</button>
+    </div>
+  </form>
+</dialog>
+<script type="module" src="app/main.js"></script>
+</body>
+</html>
